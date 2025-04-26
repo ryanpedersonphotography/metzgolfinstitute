@@ -1,27 +1,29 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      <header>
-        <h1>Golf Metz Institute</h1>
-        <p className="tagline">Excellence in Golf Training and Education</p>
-      </header>
-      
-      <main>
-        <section className="hero">
-          <h2>Welcome to Golf Metz Institute</h2>
-          <p>Our new website is currently under development.</p>
-          <div className="coming-soon">Coming Soon</div>
-        </section>
-        
-      </main>
-      
-      <footer>
-        <p>&copy; {new Date().getFullYear()} Golf Metz Institute. All rights reserved.</p>
-      </footer>
-    </div>
-  )
+    <Router>
+      <div className="app">
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          
+          <footer>
+            <p>&copy; {new Date().getFullYear()} Golf Metz Institute. All rights reserved.</p>
+          </footer>
+        </div>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -1,15 +1,23 @@
+/* App container */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* Main container */
 .container {
+  flex: 1;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
   color: #333;
 }
 
 /* Header styles */
 header {
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 header h1 {
@@ -35,6 +43,7 @@ main {
   padding: 3rem 2rem;
   border-radius: 8px;
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .hero h2 {
@@ -95,6 +104,7 @@ footer {
   border-top: 1px solid #eee;
   color: #666;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 /* Responsive adjustments */
