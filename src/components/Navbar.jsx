@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <Link to="/">Golf Metz Institute</Link>
+          <Link to="/">Metz Golf  Institute</Link>
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
