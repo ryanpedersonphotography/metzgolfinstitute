@@ -30,9 +30,9 @@ const Footer = () => {
         <div className="footer-column">
           <h4>Contact Us</h4>
           <ul className="contact-info">
-            <li><i className="fas fa-map-marker-alt"></i> 123 Golf Course Rd, Anytown, USA</li>
-            <li><i className="fas fa-phone"></i> (555) 123-4567</li>
-            <li><i className="fas fa-envelope"></i> info@metzgolf.com</li>
+            <li><i className="fas fa-map-marker-alt"></i> 23521 Nokomis Ave, Nisswa, MN 56468</li>
+            <li><i className="fas fa-phone"></i> (218) 330-3402</li>
+            <li><i className="fas fa-envelope"></i> gavin.metz@grandviewlodge.com</li>
           </ul>
         </div>
         
@@ -40,7 +40,7 @@ const Footer = () => {
           <h4>Follow Us</h4>
           <div className="social-icons">
             <a href="#" className="social-icon"><FaFacebookF /></a>
-            <a href="#" className="social-icon"><FaInstagram /></a>
+            <a href="https://www.instagram.com/metzgolfinstitute/" className="social-icon"><FaInstagram /></a>
             <a href="#" className="social-icon"><FaTwitter /></a>
             <a href="#" className="social-icon"><FaYoutube /></a>
           </div>
