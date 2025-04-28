@@ -1,28 +1,50 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+// App.jsx
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import CoachProfile from './components/CoachProfile';
+import Programs from './components/Programs';
+import Testimonials from './components/Testimonials';
+import Facility from './components/Facility';
+import PricingSection from './components/PricingSection';
+import Gallery from './components/Gallery';
+import SchedulingForm from './components/SchedulingForm.jsx';
+import ContactCTA from './components/ContactCTA';
+import Footer from './components/Footer';
 
 function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-          
-          <footer>
-            <p>&copy; {new Date().getFullYear()} Golf Metz Institute. All rights reserved.</p>
-          </footer>
-        </div>
-      </div>
-    </Router>
+    <div className="app">
+      <Navbar scrolled={scrolled} />
+      <Hero />
+      <Features />
+      <CoachProfile />
+      {/* <Programs /> */}
+      <Testimonials />
+      <Facility />
+      <PricingSection />
+      {/* <Gallery /> */}
+      {/* <ContactCTA /> */}
+      <SchedulingForm />
+      <Footer />
+    </div>
   );
 }
 
