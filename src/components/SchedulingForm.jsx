@@ -1,65 +1,26 @@
 // components/SchedulingForm.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 const SchedulingForm = () => {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    lessonType: 'single-lesson',
-    preferredDates: '',
-    preferredTimes: '',
-    notes: ''
-  });
+  const [formspreeState, handleSubmit] = useForm("xwpobqkd");
   
-  const [formStatus, setFormStatus] = useState({
-    submitted: false,
-    error: false,
-    message: ''
-  });
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // For Netlify Forms, the form will be automatically processed
-    // This is for UX feedback only
-    try {
-      setFormStatus({
-        submitted: true,
-        error: false,
-        message: 'Thank you! Your scheduling request has been submitted. We will contact you shortly to confirm your appointment.'
-      });
-      
-      // Reset form after submission
-      setFormState({
-        name: '',
-        email: '',
-        phone: '',
-        lessonType: 'single-lesson',
-        preferredDates: '',
-        preferredTimes: '',
-        notes: ''
-      });
-    } catch (error) {
-      setFormStatus({
-        submitted: false,
-        error: true,
-        message: 'There was an error submitting your request. Please try again or contact us directly.'
-      });
-    }
-  };
-  
+  // Define lesson options
   const lessonOptions = [
     { value: 'single-lesson', label: 'Single Golf Lesson with TPI Screen (45 min - $75)' },
     { value: 'series-3', label: 'Series of 3 Lessons (45 min each - $210)' },
+    { value: 'series-5', label: 'Series of 5 Lessons (45 min each - $310)' },
+    { value: 'workout-plan', label: 'Golf Workout Plan Through TPI (30 min - $50/Month)' },
+    { value: 'training-session', label: 'Golf Training Session (30 min - $30)' },
+    { value: 'course-management', label: 'Course Management Lesson (9 Holes - $150)' },
+    { value: 'junior-10-15', label: 'Junior Lesson (30 min - $60) - Ages 10-15' },
+    { value: 'junior-5-9', label: 'Junior Lesson (30 min - $50) - Ages 5-9' },
+    { value: 'full-bag-fitting', label: 'Full Bag Fitting (2 hours - $150)' },
+    { value: 'driver-fitting', label: 'Driver/Wood Fitting (45 min - $75)' },
+    { value: 'irons-fitting', label: 'Irons Fitting (1 hour - $100)' },
+    { value: 'putter-fitting', label: 'Putter Fitting (30 min - $50)' },
+    { value: 'gap-analysis', label: 'Gap Analysis (30 min - $50)' }
+  ];
     { value: 'series-5', label: 'Series of 5 Lessons (45 min each - $310)' },
     { value: 'workout-plan', label: 'Golf Workout Plan Through TPI (30 min - $50/Month)' },
     { value: 'training-session', label: 'Golf Training Session (30 min - $30)' },
@@ -98,32 +59,26 @@ const SchedulingForm = () => {
           <div className="title-underline"></div>
         </div>
         
-        {formStatus.submitted ? (
+        {formspreeState.succeeded ? (
           <div className="form-success">
             <div className="success-icon">
               <i className="fas fa-check-circle"></i>
             </div>
             <h3>Request Submitted</h3>
-            <p>{formStatus.message}</p>
+            <p>Thank you! Your scheduling request has been submitted. We will contact you shortly to confirm your appointment.</p>
             <button 
               className="btn primary"
-              onClick={() => setFormStatus({ submitted: false, error: false, message: '' })}
+              onClick={() => window.location.reload()}
             >
               Submit Another Request
             </button>
           </div>
         ) : (
           <div className="form-container">
-            {/* The netlify attribute enables Netlify Forms */}
             <form 
-              name="scheduling-request" 
-              method="POST" 
-              data-netlify="true"
               onSubmit={handleSubmit}
               className="scheduling-form"
             >
-              {/* Required hidden field for Netlify Forms */}
-              <input type="hidden" name="form-name" value="scheduling-request" />
               
               <div className="form-row">
                 <div className="form-group">
@@ -132,10 +87,9 @@ const SchedulingForm = () => {
                     type="text" 
                     id="name" 
                     name="name" 
-                    value={formState.name}
-                    onChange={handleChange}
                     required 
                   />
+                  <ValidationError prefix="Name" field="name" errors={formspreeState.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email Address *</label>
@@ -143,10 +97,9 @@ const SchedulingForm = () => {
                     type="email" 
                     id="email" 
                     name="email" 
-                    value={formState.email}
-                    onChange={handleChange}
                     required 
                   />
+                  <ValidationError prefix="Email" field="email" errors={formspreeState.errors} />
                 </div>
               </div>
               
@@ -157,25 +110,23 @@ const SchedulingForm = () => {
                     type="tel" 
                     id="phone" 
                     name="phone" 
-                    value={formState.phone}
-                    onChange={handleChange}
                   />
+                  <ValidationError prefix="Phone" field="phone" errors={formspreeState.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="lessonType">Type of Lesson *</label>
                   <select 
                     id="lessonType" 
                     name="lessonType"
-                    value={formState.lessonType}
-                    onChange={handleChange}
                     required
                   >
                     {lessonOptions.map(option => (
-                      <option key={option.value} value={option.value}>
+                      <option key={option.value} value={option.label}>
                         {option.label}
                       </option>
                     ))}
                   </select>
+                  <ValidationError prefix="Lesson Type" field="lessonType" errors={formspreeState.errors} />
                 </div>
               </div>
               
@@ -187,10 +138,9 @@ const SchedulingForm = () => {
                     id="preferredDates" 
                     name="preferredDates" 
                     placeholder="e.g., 05/15/2025, 05/16/2025"
-                    value={formState.preferredDates}
-                    onChange={handleChange}
                     required 
                   />
+                  <ValidationError prefix="Preferred Dates" field="preferredDates" errors={formspreeState.errors} />
                   <small className="form-hint">Please list multiple dates in order of preference</small>
                 </div>
                 <div className="form-group">
@@ -198,8 +148,6 @@ const SchedulingForm = () => {
                   <select 
                     id="preferredTimes" 
                     name="preferredTimes"
-                    value={formState.preferredTimes}
-                    onChange={handleChange}
                     required
                   >
                     <option value="">Select a time slot</option>
@@ -209,6 +157,7 @@ const SchedulingForm = () => {
                       </option>
                     ))}
                   </select>
+                  <ValidationError prefix="Preferred Times" field="preferredTimes" errors={formspreeState.errors} />
                 </div>
               </div>
               
@@ -219,20 +168,19 @@ const SchedulingForm = () => {
                   name="notes" 
                   rows="4"
                   placeholder="Any special requirements or questions?"
-                  value={formState.notes}
-                  onChange={handleChange}
                 ></textarea>
+                <ValidationError prefix="Notes" field="notes" errors={formspreeState.errors} />
               </div>
               
-              {formStatus.error && (
+              {formspreeState.errors && formspreeState.errors.length > 0 && (
                 <div className="form-error">
-                  <p>{formStatus.message}</p>
+                  <p>There was an error submitting your request. Please check the form and try again.</p>
                 </div>
               )}
               
               <div className="form-actions">
-                <button type="submit" className="btn primary">
-                  Submit Request
+                <button type="submit" className="btn primary" disabled={formspreeState.submitting}>
+                  {formspreeState.submitting ? 'Submitting...' : 'Submit Request'}
                 </button>
               </div>
               
