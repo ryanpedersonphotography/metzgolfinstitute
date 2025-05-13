@@ -3,20 +3,33 @@ import React from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Facility = () => {
-  // In a real implementation, you would add state and logic to handle the slider
   return (
     <section className="facility" id="facility">
       <div className="section-title">
         <h2>Our Facility</h2>
-        <p>A state-of-the-art environment designed for your improvement</p>
+        <p>Experience golf instruction in a beautiful Northwoods setting</p>
         <div className="title-underline"></div>
       </div>
-      
+
+      <div className="facility-description">
+        <p>
+          Training takes place at The Pines Golf Course, located in beautiful Nisswa, Minnesota and owned by
+          Grand View Lodge. This premier facility features a comprehensive practice area with a full driving range,
+          bunker practice area, and short game facilities to help you improve every aspect of your game.
+        </p>
+        <p>
+          Beyond traditional lessons, Gavin also offers the unique opportunity to play a round with you,
+          providing real-time coaching and course management strategies in actual playing conditions.
+          This on-course instruction is invaluable for translating practice improvements to your scorecard.
+        </p>
+      </div>
+
+      {/* Slider temporarily commented out
       <div className="facility-slider">
         <button className="slider-arrow left">
           <FaChevronLeft />
         </button>
-        
+
         <div className="slider-content">
           <div className="facility-slide active">
             <div className="facility-image"></div>
@@ -26,43 +39,44 @@ const Facility = () => {
             </div>
           </div>
         </div>
-        
+
         <button className="slider-arrow right">
           <FaChevronRight />
         </button>
       </div>
-      
+      */}
+
       <div className="facility-features">
-        <div className="facility-feature">
-          <div className="feature-icon">
-            <i className="fas fa-video"></i>
-          </div>
-          <h4>Video Analysis</h4>
-          <p>High-speed cameras capture every detail of your swing</p>
-        </div>
-        
-        <div className="facility-feature">
-          <div className="feature-icon">
-            <i className="fas fa-chart-line"></i>
-          </div>
-          <h4>Performance Tracking</h4>
-          <p>Monitor your progress with detailed stats and analysis</p>
-        </div>
-        
         <div className="facility-feature">
           <div className="feature-icon">
             <i className="fas fa-golf-ball"></i>
           </div>
-          <h4>Putting Lab</h4>
-          <p>Perfect your stroke on our professional putting surface</p>
+          <h4>Driving Range</h4>
+          <p>Full-size practice area to work on all aspects of your full swing</p>
         </div>
-        
+
         <div className="facility-feature">
           <div className="feature-icon">
-            <i className="fas fa-laptop"></i>
+            <i className="fas fa-mountain"></i>
           </div>
-          <h4>Simulator</h4>
-          <p>Practice on virtual versions of the world's best courses</p>
+          <h4>Bunker Practice</h4>
+          <p>Dedicated sand practice area to master those tricky bunker shots</p>
+        </div>
+
+        <div className="facility-feature">
+          <div className="feature-icon">
+            <i className="fas fa-flag"></i>
+          </div>
+          <h4>Short Game Area</h4>
+          <p>Perfect your chipping, pitching and putting on specialized practice greens</p>
+        </div>
+
+        <div className="facility-feature">
+          <div className="feature-icon">
+            <i className="fas fa-user-friends"></i>
+          </div>
+          <h4>Playing Lessons</h4>
+          <p>Join Gavin for a round to receive real-time coaching on the course</p>
         </div>
       </div>
     </section>

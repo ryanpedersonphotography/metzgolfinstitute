@@ -641,6 +641,19 @@ img {
   overflow: hidden;
 }
 
+.facility-description {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.facility-description p {
+  margin-bottom: 1.5rem;
+}
+
 .facility-slide {
   display: flex;
   flex-direction: column;
