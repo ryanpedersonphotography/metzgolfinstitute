@@ -20,7 +20,7 @@ const Hero = () => {
         </p>
         <div className="hero-buttons animated fadeInUp delay-2">
           <a href="#approach" className="btn primary">Learn About Our Approach</a>
-          <a href="#schedule" className="btn secondary">Contact Us</a>
+          <a href="#schedule" className="btn secondary">Schedule Lesson</a>
         </div>
       </div>
       <div className="scroll-indicator" onClick={scrollToContent}>
