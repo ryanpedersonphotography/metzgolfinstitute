@@ -1430,7 +1430,7 @@ img {
 /* Certification Section */
 .certification-section {
   padding: 6rem 5%;
-  background-color: var(--light-blue);
+  background-color: var(--white);
 }
 
 .certification-grid {
@@ -1442,7 +1442,7 @@ img {
 }
 
 .certification-card {
-  background-color: var(--white);
+  background-color: var(--light-blue);
   border-radius: 10px;
   padding: 2.5rem;
   box-shadow: var(--shadow);

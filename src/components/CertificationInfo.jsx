@@ -6,7 +6,7 @@ const CertificationInfo = () => {
     <section className="certification-section" id="certifications">
       <div className="container">
         <div className="section-title">
-          <h2>Professional Certifications</h2>
+          <h2>Pro Credentials</h2>
           <p>Training backed by industry-leading golf and fitness certifications</p>
           <div className="title-underline"></div>
         </div>
