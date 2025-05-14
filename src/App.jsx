@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import Facility from './components/Facility';
 // import PricingSection from './components/PricingSection';
 import Gallery from './components/Gallery';
+import CertificationInfo from './components/CertificationInfo';
 import SchedulingForm from './components/SchedulingForm.jsx';
 import ContactCTA from './components/ContactCTA';
 import Footer from './components/Footer';
@@ -39,6 +40,7 @@ function App() {
       {/* <Programs /> */}
       <Testimonials />
       <Facility />
+      <CertificationInfo />
       {/* <PricingSection /> */}
       {/* <Gallery /> */}
       {/* <ContactCTA /> */}

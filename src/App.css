@@ -1318,6 +1318,30 @@ img {
   background-color: var(--accent-green);
 }
 
+.certification-info {
+  margin-top: 2rem;
+}
+
+.certification-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.certification-info p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.email-link {
+  color: inherit;
+  transition: var(--transition);
+  margin-left: 0.5rem;
+}
+
+.email-link:hover {
+  color: var(--accent-green);
+}
+
 .footer-links li {
   margin-bottom: 0.8rem;
 }
@@ -1403,34 +1427,128 @@ img {
   font-size: 0.9rem;
 }
 
+/* Certification Section */
+.certification-section {
+  padding: 6rem 5%;
+  background-color: var(--light-blue);
+}
+
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 3rem auto 4rem;
+}
+
+.certification-card {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.certification-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-strong);
+}
+
+.cert-icon {
+  font-size: 3rem;
+  color: var(--accent-green);
+  margin-bottom: 1.5rem;
+}
+
+.certification-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+.certification-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.cert-benefits {
+  background-color: rgba(45, 140, 75, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.cert-benefits h4 {
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.cert-benefits ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.cert-benefits li {
+  color: #555;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  position: relative;
+  list-style-type: none;
+}
+
+.cert-benefits li:before {
+  content: "•";
+  color: var(--accent-green);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.certification-summary {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.certification-summary p {
+  margin-bottom: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
   .hero h1 {
     font-size: 3rem;
   }
-  
+
   .coach-profile {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .coach-info {
     max-width: 100%;
   }
-  
+
   .coach-info .section-label {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .testimonial-text {
     font-size: 1.1rem;
   }
-  
+
   .pricing-card.featured {
     transform: scale(1);
   }
-  
+
   .pricing-card.featured:hover {
     transform: scale(1) translateY(-10px);
   }
