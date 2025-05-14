@@ -38,7 +38,7 @@ function App() {
       <Features />
       <CoachProfile />
       {/* <Programs /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Facility />
       <CertificationInfo />
       {/* <PricingSection /> */}
