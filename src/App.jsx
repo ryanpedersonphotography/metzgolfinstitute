@@ -8,7 +8,7 @@ import CoachProfile from './components/CoachProfile';
 import Programs from './components/Programs';
 import Testimonials from './components/Testimonials';
 import Facility from './components/Facility';
-import PricingSection from './components/PricingSection';
+// import PricingSection from './components/PricingSection';
 import Gallery from './components/Gallery';
 import SchedulingForm from './components/SchedulingForm.jsx';
 import ContactCTA from './components/ContactCTA';
@@ -39,7 +39,7 @@ function App() {
       {/* <Programs /> */}
       <Testimonials />
       <Facility />
-      <PricingSection />
+      {/* <PricingSection /> */}
       {/* <Gallery /> */}
       {/* <ContactCTA /> */}
       <SchedulingForm />
